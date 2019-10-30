@@ -28,6 +28,7 @@ namespace CourseLibrary.API.Controllers
         }
 
         [HttpGet()]
+        [HttpHead]
         public ActionResult<IEnumerable<AuthorDto>> GetAuthors()
         {
             var authorsFromRepo = _courseLibraryRepository.GetAuthors();
@@ -36,6 +37,7 @@ namespace CourseLibrary.API.Controllers
         }
 
         [HttpGet("{authorId}")]
+        [HttpHead]
         public IActionResult GetAuthor(Guid authorId)
         {
             var authorFromRepo = _courseLibraryRepository.GetAuthor(authorId);
