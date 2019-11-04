@@ -83,7 +83,7 @@ namespace CourseLibrary.API.Controllers
 
             var courseForAuthorFromRepo = _courseLibraryRepository.GetCourse(authorId, courseId);
             
-            if (courseForAuthorFromRepo != null)
+            if (courseForAuthorFromRepo == null)
             {
                 return NotFound();
             }
@@ -95,6 +95,10 @@ namespace CourseLibrary.API.Controllers
             _mapper.Map(course, courseForAuthorFromRepo);
 
             _courseLibraryRepository.UpdateCourse(courseForAuthorFromRepo);
+
+            _courseLibraryRepository.Save();
+
+            return NoContent();
         }
     }
 }
