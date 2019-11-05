@@ -1,10 +1,12 @@
-﻿using System;
+﻿using CourseLibrary.API.ValidationAttributes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CourseLibrary.API.Models
 {
-    public class CourseForCreationDto
+    public class CourseForCreationDto : CourseForManipulationDto
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
+        
     }
 }
